@@ -90,11 +90,10 @@ def FileSort(path):
     sorted_file_dict = {k: v for k, v in sorted_tuples}
 
     for i, n in sorted_file_dict.items():
-        # print(i)
-        # print(n[1])
-        # print(list(sorted_file_dict.values())[n][1])
         with open(f'{n[1]}/{i}', 'r', encoding='utf-8') as file_:
-            print(f'\nНаименование файла: {i}\nКоличество строк: {n[0]}\nСодержимое:\n{file_.read()}')
+            # print(f'\nНаименование файла: {i}\nКоличество строк: {n[0]}\nСодержимое:\n{file_.read()}')
 
-# FileSort(path)
+            result = open(f'{path}/result.txt', 'a+', encoding='utf-8')
+            result.write(f'Наименование файла: {i}\nКоличество строк: {n[0]}\nСодержимое:\n{file_.read()}\n\n')
+FileSort(path)
 
